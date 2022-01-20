@@ -20,4 +20,14 @@
 https://cdn.jsdelivr.net/gh/Techonaut/cookieMonster@1.0.0/build/cookieMonster.min.js
 ```
 
-# Usage
+# Features
+
+- Cookie controll
+- Json web token
+  - Parse
+  - Create
+    - Signed
+    - Un-signed
+- Data Encoding/Decoding
+  - Base64
+  - Base64Url
