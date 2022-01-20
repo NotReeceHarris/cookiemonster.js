@@ -2,6 +2,8 @@ name: Minify Workflow
 on:
   push:
     branches: [ master ]
+  schedule:
+    - cron: '29 3 * * 5'
 
 jobs:
   build:
