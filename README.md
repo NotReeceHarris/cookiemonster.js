@@ -11,6 +11,6 @@
 
 <p align="center">
   <img alt="jsDelivr hits (GitHub)" src="https://img.shields.io/jsdelivr/gh/hy/Techonaut/cookieMonster?style=flat-square">
-  <img alt="GitHub file size in bytes" src="https://img.shields.io/github/size/Techonaut/cookieMonster/build/cookieMonster.js?style=flat-square">
+  <img alt="GitHub file size in bytes" src="https://img.shields.io/github/size/Techonaut/cookieMonster/build/cookieMonster.min.js?style=flat-square">
   
 </p>
