@@ -7,7 +7,7 @@
   <br>
 </h1>
 
-<h4 align="center">Controll all your cookies with an all in one package.</h4>
+<h4 align="center">Controll all data client side with cookie monster. <a href="https://en.wikipedia.org/wiki/HTTP_cookie">Cookie</a>, <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a>, <a href="https://en.wikipedia.org/wiki/Base64">Base64</a>, <a href="https://en.wikipedia.org/wiki/Hash_function">Hashing</a>  <h4>
 
 <p align="center">
   <img alt="jsDelivr hits (GitHub)" src="https://img.shields.io/jsdelivr/gh/hy/Techonaut/cookieMonster?style=flat-square">
