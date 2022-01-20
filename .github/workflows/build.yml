@@ -27,8 +27,8 @@ jobs:
       - name: Minify-JS Action
         uses: jossydevers/minify-js@v1.0.0
         with:
-          directory: 'src/component.js' # (OPTIONAL)
-          output: 'minify/src/' # (OPTIONAL)
+          directory: 'src/cookieMonster.js' # (OPTIONAL)
+          output: 'build/' # (OPTIONAL)
           
       # Auto-commit to repository
       - uses: stefanzweifel/git-auto-commit-action@v4
