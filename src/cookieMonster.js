@@ -1,1 +1,1 @@
-console.log('test 2');
+console.log('This is a test to minify build');
