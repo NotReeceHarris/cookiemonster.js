@@ -18,20 +18,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.ref }}
+    # Checks-out your repository under $GITHUB_WORKSPACE, so auto-minify job can access it
+    - uses: actions/checkout@v2
 
-      # Job for Minify-JS
-      - name: Minify-JS Action
-        uses: jossydevers/minify-js@v1.0.0
-        with:
-          directory: 'src/cookieMonster.js' # (OPTIONAL)
-          output: 'build/' # (OPTIONAL)
-          
-      # Auto-commit to repository
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 'Minify-JS : Commit Pipeline'
-          branch: ${{ github.ref }}
+    - name: Auto Minify
+      uses: nizarmah/auto-minify@v2.1
+      with:
+        directory: 'src'
+        output: 'build'
