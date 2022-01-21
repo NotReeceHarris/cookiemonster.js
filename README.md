@@ -10,8 +10,9 @@
 <h4 align="center">Controll all data client side with cookie monster. <a href="https://en.wikipedia.org/wiki/HTTP_cookie">Cookie</a>, <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a>, <a href="https://en.wikipedia.org/wiki/Base64">Base64</a>, <a href="https://en.wikipedia.org/wiki/Hash_function">Hashing</a>  <h4>
 
 <p align="center">
-  <img alt="jsDelivr hits (GitHub)" src="https://img.shields.io/jsdelivr/gh/hy/Techonaut/cookieMonster?style=flat-square">
-  <img alt="GitHub file size in bytes" src="https://img.shields.io/github/size/Techonaut/cookieMonster/build/cookieMonster.min.js?style=flat-square">
+  <img alt="jsDelivr hits (GitHub)" src="https://img.shields.io/jsdelivr/gh/hy/Techonaut/cookieMonster">
+  <img alt="GitHub file size in bytes" src="https://img.shields.io/github/size/Techonaut/cookieMonster/build/cookieMonster.min.js">
+  <img alt="GitHub file size in bytes" src="https://github.com/Techonaut/cookieMonster/actions/workflows/build.yml/badge.svg?style=flat-square">
 </p>
 
 
