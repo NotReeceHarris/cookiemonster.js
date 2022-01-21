@@ -4,7 +4,7 @@
  */
 
 // Version of cookie monster
-const COOKIE_MONSTER_VERSION = "1.0.3"
+const COOKIE_MONSTER_VERSION = "1.0.4"
 
 // Enter name space "cookieMonster"
 var cookieMonster = {
@@ -239,12 +239,9 @@ COOKIE_MONSTER_GET_VERSION: async function () {
 
 COOKIE_MONSTER_UPDATE_CHECK: async function() {
   let apiRESPONSE = await cookieMonster.COOKIE_MONSTER_GET_VERSION();
-  let html = '';
-  apiRESPONSE.forEach(data => {
-      if (data.name != COOKIE_MONSTER_VERSION) {
-        console.log('%c This Version of cookie clicker is depricated please use the latest release (https://cdn.jsdelivr.net/gh/Techonaut/cookieMonster@' + data.name + '/build/cookieMonster.min.js)', 'color: #da9f83;font-weight: 900;')
-      }
-  });
+  if (apiRESPONSE[0].name != COOKIE_MONSTER_VERSION) {
+    console.log('%c This Version of cookie clicker is depricated please use the latest release (https://cdn.jsdelivr.net/gh/Techonaut/cookieMonster@' + data.name + '/build/cookieMonster.min.js)', 'color: #da9f83;font-weight: 900;')
+  }
 },
 
 }
