@@ -1,47 +1,46 @@
 <script src="/src/cookieMonster.js"></script>
 
+Open console
+
 <script>
+var header = {
+  "alg": "HS256",
+  "typ": "JWT"
+};
 
-    var header = {
-    "alg": "HS256",
-    "typ": "JWT"
-    };
+var data = {
+  "id": 1337,
+  "username": "john.doe"
+};
 
-    var data = {
-    "id": 1337,
-    "username": "john.doe"
-    };
+var secret = 'Secret password';
 
-    var secret = 'Secret password';
+let myjwt = new jwt(header, data, secret);
 
-    let myjwt = new jwt(header, data, secret);
+console.log('%c This is a cookie monster test ', 'color: #da9f83; font-size:50px;font-weight: 900;');
+console.log('%c CookieMonster v1.*.* (https://techonaut.tech/)', 'color: #da9f83;font-weight: 900;')
+console.log('%c Licensed under GPL-3.0 (https://github.com/Techonaut/cookieMonster/blob/development/LICENSE)', 'color: #da9f83;font-weight: 900;')
 
-    console.log('%c This is a cookie monster test ', 'color: #da9f83; font-size:50px;');
-    console.log('CookieMonster v1.*.* (https://techonaut.tech/)')
-    console.log('Licensed under GPL-3.0 (https://github.com/Techonaut/cookieMonster/blob/development/LICENSE)')
+console.log('')
 
-    console.log('')
+console.log('%c Un-signed JWT : ' + "\x1b[37m" + myjwt.unsigned(), 'color: #da9f83;font-weight: 900;')
+console.log(parseJwt(myjwt.unsigned()))
 
-    console.log('Un-signed JWT : ' + myjwt.unsigned())
-    console.log(parseJwt(myjwt.unsigned()))
+console.log('')
 
-    console.log('')
+console.log('%c Signed JWT : ' + "\x1b[37m" + myjwt.signed(), 'color: #da9f83;font-weight: 900;')
+console.log(parseJwt(myjwt.signed()))
 
-    console.log('Signed JWT : ' + myjwt.signed() + ' ')
-    console.log(parseJwt(myjwt.signed()))
+console.log('')
 
-    console.log('')
+console.log('%c HMAC: key="Secret" Message="Hello Worlds" => ' + "\x1b[37m" + ' 4+aRrBhBpDHBnrH+JFFYFmMTl+8YeMFEkkloBB/xWkc=', 'color: #da9f83;font-weight: 900;')
+console.log(HMAC('Secret', 'Hello Worlds'))
 
-    console.log('HMAC: key="Secret" Message="Hello Worlds" => 4+aRrBhBpDHBnrH+JFFYFmMTl+8YeMFEkkloBB/xWkc=')
-    console.log(HMAC('Secret','Hello Worlds'))
+console.log('')
 
-    console.log('')
+console.log('%c Base64Url: "Hello World" => ' + "\x1b[37m" + base64url('Hello World'), 'color: #da9f83;font-weight: 900;')
 
-    console.log('Base64Url: "Hello World" => ' + base64url('Hello World'))
+console.log('')
 
-    console.log('')
-
-    console.log('Sha256: "Hello World" => ' + sha256('Hello World'))
-
-
+console.log('%c Sha256: "Hello World" => ' + "\x1b[37m" + sha256('Hello World'), 'color: #da9f83;font-weight: 900;')
 </script>
