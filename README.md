@@ -68,7 +68,7 @@ var signedParsed = cookieMonster.parseJwt(signed)
 cookieMonster.sha256('Hello World')
 // a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e
 
-HMAC('Secret', 'Hello Worlds')
+cookieMonster.HMAC('Secret', 'Hello Worlds')
 // 4+aRrBhBpDHBnrH+JFFYFmMTl+8YeMFEkkloBB/xWkc=
 ```
 ### Encoding
