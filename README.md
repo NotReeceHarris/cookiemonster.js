@@ -18,7 +18,7 @@
 
 # CDN
 ```
-https://cdn.jsdelivr.net/gh/Techonaut/cookieMonster@1.0.2/build/cookieMonster.min.js
+https://cdn.jsdelivr.net/gh/Techonaut/cookieMonster@1.0.3/build/cookieMonster.min.js
 ```
 
 # Usage
