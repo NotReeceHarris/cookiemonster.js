@@ -11,8 +11,8 @@
 
 <p align="center">
   <img alt="jsDelivr hits (GitHub)" src="https://img.shields.io/jsdelivr/gh/hy/Techonaut/cookieMonster">
-  <img alt="GitHub file size in bytes" src="https://img.shields.io/github/size/Techonaut/cookieMonster/build/cookieMonster.min.js">
-  <img alt="GitHub file size in bytes" src="https://github.com/Techonaut/cookieMonster/actions/workflows/build.yml/badge.svg?style=flat-square">
+  <a href="https://cdn.jsdelivr.net/gh/Techonaut/cookieMonster/build/cookieMonster.min.js"> <img alt="GitHub file size in bytes" src="https://img.shields.io/github/size/Techonaut/cookieMonster/build/cookieMonster.min.js"> <a/>
+  <a href="https://cdn.jsdelivr.net/gh/Techonaut/cookieMonster/build/cookieMonster.min.js"> <img alt="GitHub file size in bytes" src="https://github.com/Techonaut/cookieMonster/actions/workflows/build.yml/badge.svg?style=flat-square"> <a/>
 </p>
 
 
