@@ -26,11 +26,11 @@ https://cdn.jsdelivr.net/gh/Techonaut/cookieMonster@1.0.2/build/cookieMonster.mi
 ```js
 /*! Http Cookie */
 
-setCookie('Cookie name', 'Cookie Value', '/', 9, 'Lax', true)
+cookieMonster.setCookie('Cookie name', 'Cookie Value', '/', 9, 'Lax', true)
 // Name        | Value        | Domain    | Path | Expires/Max-age         | Size | Secure | SameSite
 // Cookie name | Cookie Value | localhost |  /  | 2022-01-30T01:49:19.000Z |  23  |  true  | lax
 
-getCookie('Cookie name')
+cookieMonster.getCookie('Cookie name')
 // Cookie Value
 ```
 ### Json Web Token
@@ -49,15 +49,15 @@ var data = {
 
 var secret = 'Secret password';
 
-let myjwt = new jwt(header, data, secret);
+let myjwt = new cookieMonster.jwt(header, data, secret);
 
 var unsigned = myjwt.unsigned();
-var unsignedParsed = parseJwt(unsigned)
+var unsignedParsed = cookieMonster.parseJwt(unsigned)
 // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMzNywidXNlcm5hbWUiOiJqb2huLmRvZSJ9
 // {id: 1337, username: 'john.doe'}
 
 var signed = myjwt.signed();
-var signedParsed = parseJwt(signed)
+var signedParsed = cookieMonster.parseJwt(signed)
 // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMzNywidXNlcm5hbWUiOiJqb2huLmRvZSJ9.W29iamVjdCBQcm9taXNlXQ
 // {id: 1337, username: 'john.doe'}
 ```
@@ -65,7 +65,7 @@ var signedParsed = parseJwt(signed)
 ```js
 /*! Hashing */
 
-sha256('Hello World')
+cookieMonster.sha256('Hello World')
 // a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e
 
 HMAC('Secret', 'Hello Worlds')
@@ -75,10 +75,10 @@ HMAC('Secret', 'Hello Worlds')
 ```js
 /*! Encoding */
 
-base64url('Hello World')
+cookieMonster.base64url('Hello World')
 // SGVsbG8gV29ybGQ
 
-encode_utf8('Hello World')
+cookieMonster.encode_utf8('Hello World')
 // Hello World
 
 ```

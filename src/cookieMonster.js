@@ -3,9 +3,14 @@
  * Licensed under GPL-3.0 (https://github.com/Techonaut/cookieMonster/blob/development/LICENSE)
  */
 
+// Version of cookie monster
+const COOKIE_MONSTER_VERSION = "1.0.2"
 
-// COOKIE Functionality
-function getCookie(cname) {
+// Enter name space "cookieMonster"
+var cookieMonster = {
+
+/*! Http Cookie */
+getCookie: function(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
@@ -19,9 +24,9 @@ function getCookie(cname) {
       }
     }
     return "";
-  }
+  },
   
-  function setCookie(name, value, path = '/', exdays = (999*999*999), sameSite = 'Lax', secure = false) {
+  setCookie: function(name, value, path = '/', exdays = (999*999*999), sameSite = 'Lax', secure = false) {
   
     const d = new Date();
   
@@ -30,26 +35,12 @@ function getCookie(cname) {
   
     var secure = (secure) ? ";secure" : "";
     document.cookie = name + "=" + value + ";" + expires + ";path=" + path + ";SameSite=" + sameSite + secure;
-  }
+  },
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*! Json Web Token */
   
-  // JWT Functionality
-  
-  function parseJwt(encodedToken) {
+  parseJwt: function(encodedToken) {
     var base64Url = encodedToken.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
@@ -57,10 +48,10 @@ function getCookie(cname) {
     }).join(''));
   
     return JSON.parse(jsonPayload);
-  };
+  },
   
   
-  class jwt {
+  jwt: class {
   
     constructor(header, data, secret) {
       this.header = header
@@ -69,11 +60,11 @@ function getCookie(cname) {
     }
   
     unsigned() {
-      var stringifiedHeader = encode_utf8(JSON.stringify(header));
-      var encodedHeader = base64url(stringifiedHeader);
+      var stringifiedHeader = cookieMonster.encode_utf8(JSON.stringify(header));
+      var encodedHeader = cookieMonster.base64url(stringifiedHeader);
   
-      var stringifiedData = encode_utf8(JSON.stringify(data));
-      var encodedData = base64url(stringifiedData);
+      var stringifiedData = cookieMonster.encode_utf8(JSON.stringify(data));
+      var encodedData = cookieMonster.base64url(stringifiedData);
   
       var token = encodedHeader + "." + encodedData;
   
@@ -84,41 +75,26 @@ function getCookie(cname) {
       if (this.secret == null) {
         throw 'secret is needed for a signed JWT';
       } else {
-        var stringifiedHeader = encode_utf8(JSON.stringify(header));
-        var encodedHeader = base64url(stringifiedHeader);
+        var stringifiedHeader = cookieMonster.encode_utf8(JSON.stringify(header));
+        var encodedHeader = cookieMonster.base64url(stringifiedHeader);
   
-        var stringifiedData = encode_utf8(JSON.stringify(data));
-        var encodedData = base64url(stringifiedData);
+        var stringifiedData = cookieMonster.encode_utf8(JSON.stringify(data));
+        var encodedData = cookieMonster.base64url(stringifiedData);
   
         var token = encodedHeader + "." + encodedData;
   
-        var signature = HMAC(token, secret);
-        signature = base64url(signature);
+        var signature = cookieMonster.HMAC(token, secret);
+        signature = cookieMonster.base64url(signature);
         var signedToken = token + "." + signature;
   
         return signedToken;
       }
     }
-  }
+  },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*! Encoding */
   
-  // Encoding functions
-  
-  function base64url(source) {
+  base64url: function(source) {
   
     encodedSource = btoa(source);
     encodedSource = encodedSource.replace(/=+$/, '');
@@ -126,13 +102,13 @@ function getCookie(cname) {
     encodedSource = encodedSource.replace(/\//g, '_');
   
     return encodedSource;
-  }
+  },
   
-  function encode_utf8(s) {
+  encode_utf8: function(s) {
     return unescape(encodeURIComponent(s));
-  }
+  },
   
-  async function HMAC(key, message) {
+  HMAC: async function(key, message) {
     const g = str => new Uint8Array([...unescape(encodeURIComponent(str))].map(c => c.charCodeAt(0))),
       k = g(key),
       m = g(message),
@@ -143,26 +119,11 @@ function getCookie(cname) {
       s = await crypto.subtle.sign('HMAC', c, m);
     [...new Uint8Array(s)].map(b => b.toString(16).padStart(2, '0')).join('');
     return btoa(String.fromCharCode(...new Uint8Array(s)))
-  }
+  },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // Hashing functions
+/*! Hashing */
   
-  function sha256(ascii) {
+  sha256: function(ascii) {
     function rightRotate(value, amount) {
       return (value >>> amount) | (value << (32 - amount));
     };
@@ -179,9 +140,9 @@ function getCookie(cname) {
     //* caching results is optional - remove/add slash from front of this line to toggle
     // Initial hash value: first 32 bits of the fractional parts of the square roots of the first 8 primes
     // (we actually calculate the first 64, but extra values are just ignored)
-    var hash = sha256.h = sha256.h || [];
+    var hash = cookieMonster.sha256.h = cookieMonster.sha256.h || [];
     // Round constants: first 32 bits of the fractional parts of the cube roots of the first 64 primes
-    var k = sha256.k = sha256.k || [];
+    var k = cookieMonster.sha256.k = cookieMonster.sha256.k || [];
     var primeCounter = k[lengthProperty];
     /*/
     var hash = [], k = [];
@@ -263,4 +224,29 @@ function getCookie(cname) {
       }
     }
     return result;
-  };
+  },
+
+
+/*! Update checker */
+COOKIE_MONSTER_GET_VERSION: async function () {
+  try {
+      let res = await fetch('https://api.github.com/repos/Techonaut/cookieMonster/tags');
+      return await res.json();
+  } catch (error) {
+      console.log(error);
+  }
+},
+
+COOKIE_MONSTER_UPDATE_CHECK: async function() {
+  let apiRESPONSE = await cookieMonster.COOKIE_MONSTER_GET_VERSION();
+  let html = '';
+  apiRESPONSE.forEach(data => {
+      if (data.name != COOKIE_MONSTER_VERSION) {
+        console.log('%c This Version of cookie clicker is depricated please use the latest release (https://cdn.jsdelivr.net/gh/Techonaut/cookieMonster@' + data.name + '/build/cookieMonster.min.js)', 'color: #da9f83;font-weight: 900;')
+      }
+  });
+},
+
+}
+
+cookieMonster.COOKIE_MONSTER_UPDATE_CHECK()
