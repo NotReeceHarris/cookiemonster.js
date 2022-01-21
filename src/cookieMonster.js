@@ -21,16 +21,12 @@ function getCookie(cname) {
     return "";
   }
   
-  function setCookie(name, value, path = '/', exdays = 'session', sameSite = 'Lax', secure = false) {
+  function setCookie(name, value, path = '/', exdays = (999*999*999), sameSite = 'Lax', secure = false) {
   
     const d = new Date();
   
-    if (exdays != 'session') {
-      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-      let expires = "expires=" + d.toUTCString();
-    } else {
-      let expires = "expires=session"
-    }
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
   
     var secure = (secure) ? ";secure" : "";
     document.cookie = name + "=" + value + ";" + expires + ";path=" + path + ";SameSite=" + sameSite + secure;

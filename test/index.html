@@ -42,5 +42,12 @@ console.log('%c Base64Url: "Hello World" => ' + "\x1b[37m" + base64url('Hello Wo
 
 console.log('')
 
+console.log('%c utf8: "Hello World" => ' + "\x1b[37m" + encode_utf8('Hello World'), 'color: #da9f83;font-weight: 900;')
+
+console.log('')
+
 console.log('%c Sha256: "Hello World" => ' + "\x1b[37m" + sha256('Hello World'), 'color: #da9f83;font-weight: 900;')
+
+setCookie('Cookie name', 'Cookie Value', '/', 9, 'Lax', true)
+console.log(getCookie('Cookie name'))
 </script>
