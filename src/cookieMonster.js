@@ -4,7 +4,7 @@
  */
 
 // Version of cookie monster
-const COOKIE_MONSTER_VERSION = "1.0.2"
+const COOKIE_MONSTER_VERSION = "1.0.3"
 
 // Enter name space "cookieMonster"
 var cookieMonster = {
