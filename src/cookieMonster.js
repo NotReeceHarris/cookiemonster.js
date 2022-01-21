@@ -9,7 +9,7 @@ const COOKIE_MONSTER_VERSION = "1.0.3"
 // Enter name space "cookieMonster"
 var cookieMonster = {
 
-/*! Http Cookie */
+// Http Cookie 
 getCookie: function(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
@@ -38,7 +38,7 @@ getCookie: function(cname) {
   },
 
 
-/*! Json Web Token */
+// Json Web Token
   
   parseJwt: function(encodedToken) {
     var base64Url = encodedToken.split('.')[1];
@@ -92,7 +92,7 @@ getCookie: function(cname) {
     }
   },
 
-/*! Encoding */
+// Encoding
   
   base64url: function(source) {
   
@@ -121,7 +121,7 @@ getCookie: function(cname) {
     return btoa(String.fromCharCode(...new Uint8Array(s)))
   },
 
-/*! Hashing */
+// Hashing
   
   sha256: function(ascii) {
     function rightRotate(value, amount) {
@@ -227,7 +227,7 @@ getCookie: function(cname) {
   },
 
 
-/*! Update checker */
+// Update checker
 COOKIE_MONSTER_GET_VERSION: async function () {
   try {
       let res = await fetch('https://api.github.com/repos/Techonaut/cookieMonster/tags');
