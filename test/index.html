@@ -48,6 +48,8 @@ console.log('')
 
 console.log('%c Sha256: "Hello World" => ' + "\x1b[37m" + cookieMonster.sha256('Hello World'), 'color: #da9f83;font-weight: 900;')
 
-cookieMonster.setCookie('Cookie name', 'Cookie Value', '/', 9, 'Lax', true)
-console.log(cookieMonster.getCookie('Cookie name'))
+cookieMonster.setCookie('Cookie name1', 'Cookie Value', '/', 9, 'Lax', true)
+cookieMonster.setCookie('Cookie name2', 'Cookie Value', '/', 9, 'Lax', true)
+console.log(cookieMonster.getCookie('Cookie name1'))
+cookieMonster.deleteCookie('Cookie name2')
 </script>

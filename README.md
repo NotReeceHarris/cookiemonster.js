@@ -33,6 +33,9 @@ cookieMonster.setCookie('Cookie name', 'Cookie Value', '/', 9, 'Lax', true)
 
 cookieMonster.getCookie('Cookie name')
 // Cookie Value
+
+cookieMonster.deleteCookie('Cookie name')
+// null
 ```
 ### Json Web Token
 ```js

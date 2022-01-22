@@ -4,12 +4,16 @@
  */
 
 // Version of cookie monster
-const COOKIE_MONSTER_VERSION = "1.0.4"
+const COOKIE_MONSTER_VERSION = "1.0.5"
 
 // Enter name space "cookieMonster"
 var cookieMonster = {
 
 // Http Cookie 
+deleteCookie: function(name, path='/') {
+  document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC;path=" + path;
+},
+
 getCookie: function(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
