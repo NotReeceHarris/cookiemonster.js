@@ -1,7 +1,7 @@
 {
-    "name": "cookieMonster",
+    "name": "@Techonaut/cookiemonster",
     "version": "1.0.5",
-    "description": "Controll multiple types of data client side. ",
+    "description": "Controll multiple types of data client side.",
     "main": "build/cookieMonster.min.js",
     "keywords": [
         "cookieMonster",
@@ -16,7 +16,6 @@
     "author": "Reece Harris <reece.harris98@protonmail.com>",
     "license": "GPL-3.0",
     "repository": {
-        "type": "git",
         "url": "git://github.com/Techonaut/cookieMonster.git"
     },
     "bugs": {
